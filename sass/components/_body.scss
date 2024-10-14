@@ -1,0 +1,19 @@
+.main {
+  padding: 0 175px;
+  max-width: 100%;
+  background-color: getcolor("whiteN2");
+  background-image: url(../../images/bgPage.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-div {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 39px 92px 36px 92px;
+    background-color: getcolor("white");
+  }
+}

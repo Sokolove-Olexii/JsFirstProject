@@ -4,68 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>js</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    />
   </head>
   <body>
-    <header class="header" id="header"></header>
+    <header class="header" id="header">
+      <div class="header-div">
+        <a href="#" class="header-logo">
+          <img
+            src="./images/icons/headLogo.svg"
+            alt="headLogo"
+            class="header-logo-icon"
+          />
+        </a>
+
+        <ul class="header-left">
+          <li class="header-left_li">Інтерактив</li>
+          <li class="header-left_li">Наша команда</li>
+          <li class="header-left_li">Контакти</li>
+        </ul>
+        <ul class="header-right">
+          <li class="header-right_li"></li>
+          <li class="header-right_li"><p>Вітаємо, User!</p></li>
+        </ul>
+      </div>
+    </header>
     <main class="main" id="main">
-      <!-- 1 -->
-      <!-- 1 -->
+      <div class="main-div">
+        <h1>Популярні інетрактивні ігри</h1>
+        <!-- <svg width="" height="1" class="">
+          <use href=""></use>
+        </svg> -->
 
-      <!-- 2 -->
-      <input type="number" id="input" />
-      <button id="button" type="button">btn</button>
-      <p id="p"></p>
-      <p id="userWin"></p>
-      <!-- 2 -->
-      <!-- 3 -->
-      <div>
-        <h2>Камінь - ножиці - папір</h2>
+        <!-- 1 -->
+        <h2>Перевір в який рік ти народився</h2>
+        <input type="number" placeholder="Введіть рік народження" />
+        <p>Ви народилися у високосний рік!</p>
+        <!-- 1 -->
 
-        <div class="choices">
-          <div class="choice" data-choice="камінь">🪨</div>
-          <div class="choice" data-choice="ножиці">✂️</div>
-          <div class="choice" data-choice="папір">📄</div>
+        <!-- 2 -->
+        <h2>Вгадай число, яке загадав комп’ютер</h2>
+        <input type="number" id="input" />
+        <button id="button" type="button">btn</button>
+        <p id="p"></p>
+        <p id="userWin"></p>
+        <!-- 2 -->
+        <!-- 3 -->
+        <div>
+          <h2>Камінь - ножиці - папір</h2>
+
+          <div class="choices">
+            <div class="choice" data-choice="камінь">🪨</div>
+            <div class="choice" data-choice="ножиці">✂️</div>
+            <div class="choice" data-choice="папір">📄</div>
+          </div>
+          <p id="message">Зробіть свій вибір!</p>
+          <p class="result" id="result"></p>
         </div>
-        <p id="message">Зробіть свій вибір!</p>
-        <p class="result" id="result"></p>
-      </div>
 
-      <div>
-        <p id="score">Рахунок: Комп'ютер - 0 | Ви - 0</p>
-      </div>
-
-      <!-- 3 -->
-
-      <!-- 4 -->
-      <div class="calculator">
-        <input type="number" id="calcNum1Type" class="calcNumInput" />
-        <div class="calbBtnPosition">
-          <button type="button" class="button-calc" id="btnPlus">+</button>
-          <button type="button" class="button-calc" id="btnMultiply">*</button>
-          <button type="button" class="button-calc" id="btnMinus">-</button>
-          <button type="button" class="button-calc" id="btnDivide">/</button>
+        <div>
+          <p id="score">Рахунок: Комп'ютер - 0 | Ви - 0</p>
         </div>
-        <input type="number" id="calcNum2Type" class="calcNumInput" />
-        <button type="button" id="calcResult" class="button-calc">=</button>
-        <input type="number" id="calcNumResult" class="calcNumInput" readonly />
+
+        <!-- 3 -->
+
+        <!-- 4 -->
+        <div class="calculator">
+          <input type="number" id="calcNum1Type" class="calcNumInput" />
+          <div class="calbBtnPosition">
+            <button type="button" class="button-calc" id="btnPlus">+</button>
+            <button type="button" class="button-calc" id="btnMultiply">
+              *
+            </button>
+            <button type="button" class="button-calc" id="btnMinus">-</button>
+            <button type="button" class="button-calc" id="btnDivide">/</button>
+          </div>
+          <input type="number" id="calcNum2Type" class="calcNumInput" />
+          <button type="button" id="calcResult" class="button-calc">=</button>
+          <input
+            type="number"
+            id="calcNumResult"
+            class="calcNumInput"
+            readonly
+          />
+        </div>
+        <!-- 4 -->
+
+        <!-- 5 -->
+        <h1>Калькулятор часу</h1>
+
+        <input
+          type="number"
+          id="minutesInput"
+          placeholder="Введіть кількість хвилин"
+        />
+        <button id="convertBtn">Конвертувати</button>
+        <p id="hourResult"></p>
+        <!-- 5 -->
+
+        <!-- 6 -->
+
+        <!-- 6 -->
       </div>
-      <!-- 4 -->
-
-      <!-- 5 -->
-      <h1>Калькулятор часу</h1>
-
-      <input
-        type="number"
-        id="minutesInput"
-        placeholder="Введіть кількість хвилин"
-      />
-      <button id="convertBtn">Конвертувати</button>
-      <p id="hourResult"></p>
-      <!-- 5 -->
-
-      <!-- 6 -->
-
-      <!-- 6 -->
     </main>
     <footer class="footer" id="footer"></footer>
 

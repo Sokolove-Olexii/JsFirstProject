@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 22px 0;
+  background-color: getcolor("white");
+  width: 100%;
+  //   position: fixed;
+  //   top: 0;
+
+  &-logo {
+    margin-left: 175px;
+  }
+
+  &-logo-icon {
+    width: 93px;
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    fill: getcolor("black");
+    z-index: 1;
+  }
+  &-div {
+    display: flex;
+  }
+
+  &-left {
+    display: flex;
+    width: 369px;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 81px;
+  }
+  &-right {
+    width: 185px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 361px;
+  }
+}

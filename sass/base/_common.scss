@@ -1,0 +1,56 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+ul,
+h1,
+h2,
+h3,
+h4,
+p,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// header {
+//   border-bottom: 1px solid #ececec;
+// }
+
+img,
+button {
+  display: block;
+}
+
+// .outer-container {
+//   width: 100%;
+//   max-width: 1600px;
+//   margin: 0 auto;
+//   @media screen and (max-width: 480px) {
+//     min-width: 320px;
+//   }
+// }
+
+// .inner-container {
+//   width: 100%;
+//   max-width: 1200px;
+//   margin: 0 auto;
+//   padding: 0 15px;
+//   @media screen and (max-width: 1199px) {
+//     max-width: 768px;
+//   }
+//   @media screen and (max-width: 767px) {
+//     max-width: 480px;
+//   }
+//   @media screen and (max-width: 480px) {
+//     min-width: 320px;
+//   }
+// }
