@@ -12,10 +12,13 @@ btn.addEventListener("click", () => {
 
   if (input.value < numRand) {
     userWin.textContent = "Загадане число більше";
+    userWin.style.color = "#990000";
   } else if (input.value > numRand) {
     userWin.textContent = "Загадане число менше";
-  } else {
+    userWin.style.color = "#990000";
+  } else if ((input.value = numRand)) {
     userWin.textContent = "Ви вгадали число";
+    userWin.style.color = "#039900";
   }
 });
 
@@ -152,3 +155,5 @@ document.getElementById("convertBtn").addEventListener("click", function () {
 });
 
 //6
+
+//7

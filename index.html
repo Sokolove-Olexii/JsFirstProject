@@ -34,27 +34,44 @@
     </header>
     <main class="main" id="main">
       <div class="main-div">
-        <h1>Популярні інетрактивні ігри</h1>
-        <!-- <svg width="" height="1" class="">
-          <use href=""></use>
-        </svg> -->
-
+        <h1 class="main-div_h1">Популярні інетрактивні ігри</h1>
+        <div class="main-div_line"></div>
         <!-- 1 -->
-        <h2>Перевір в який рік ти народився</h2>
-        <input type="number" placeholder="Введіть рік народження" />
-        <p>Ви народилися у високосний рік!</p>
+        <div class="main-firstGame">
+          <h2 class="main-div_gamenames">Перевір в який рік ти народився</h2>
+          <input
+            type="number"
+            placeholder="Введіть рік народження"
+            class="main-firstGame_input"
+          />
+          <p class="main-firstGame_text">Ви народилися у високосний рік!</p>
+        </div>
         <!-- 1 -->
 
         <!-- 2 -->
-        <h2>Вгадай число, яке загадав комп’ютер</h2>
-        <input type="number" id="input" />
-        <button id="button" type="button">btn</button>
-        <p id="p"></p>
-        <p id="userWin"></p>
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Вгадай число, яке загадав комп’ютер</h2>
+        <div class="main-secondGame">
+          <form class="main-secondGame-form">
+            <input
+              id="input"
+              class="main-secondGame-form_input"
+              placeholder="Введіть число"
+            />
+            <button id="button" type="button" class="main-secondGame-form_btn">
+              <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
+            </button>
+          </form>
+
+          <p id="userWin" class="main-secondGame_userWin">Загадайте число!</p>
+          <p id="p" class="main-secondGame_textPc"></p>
+        </div>
         <!-- 2 -->
+
         <!-- 3 -->
         <div>
-          <h2>Камінь - ножиці - папір</h2>
+          <div class="main-div_line"></div>
+          <h2 class="main-div_gamenames">Камінь - ножиці - папір</h2>
 
           <div class="choices">
             <div class="choice" data-choice="камінь">🪨</div>
@@ -68,11 +85,13 @@
         <div>
           <p id="score">Рахунок: Комп'ютер - 0 | Ви - 0</p>
         </div>
-
         <!-- 3 -->
 
         <!-- 4 -->
         <div class="calculator">
+          <div class="main-div_line"></div>
+          <h2 class="main-div_gamenames">Калькулятор</h2>
+
           <input type="number" id="calcNum1Type" class="calcNumInput" />
           <div class="calbBtnPosition">
             <button type="button" class="button-calc" id="btnPlus">+</button>
@@ -94,7 +113,8 @@
         <!-- 4 -->
 
         <!-- 5 -->
-        <h1>Калькулятор часу</h1>
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Калькулятор часу</h2>
 
         <input
           type="number"
@@ -106,8 +126,29 @@
         <!-- 5 -->
 
         <!-- 6 -->
-
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Google динозавр</h2>
         <!-- 6 -->
+
+        <!-- 7 -->
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Футбол</h2>
+        <!-- 7 -->
+
+        <!-- 8 -->
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Введіть 3 числа</h2>
+        <!-- 8 -->
+
+        <!-- 9 -->
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Наша команда</h2>
+        <!-- 9 -->
+
+        <!-- 10 -->
+        <div class="main-div_line"></div>
+        <h2 class="main-div_gamenames">Обери вченого/их</h2>
+        <!-- 10 -->
       </div>
     </main>
     <footer class="footer" id="footer"></footer>
