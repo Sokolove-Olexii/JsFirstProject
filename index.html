@@ -12,7 +12,7 @@
   </head>
   <body>
     <header class="header" id="header">
-      <div class="header-div">
+      <section class="header-div">
         <a href="#" class="header-logo">
           <img
             src="./images/icons/headLogo.svg"
@@ -30,7 +30,7 @@
           <li class="header-right_li"></li>
           <li class="header-right_li"><p>Вітаємо, User!</p></li>
         </ul>
-      </div>
+      </section>
     </header>
     <main class="main" id="main">
       <div class="main-div">
@@ -210,7 +210,34 @@
 
         <!-- 8 -->
         <div class="main-div_line"></div>
-        <h2 class="main-div_gamenames">Введіть 3 числа</h2>
+        <div class="main-eighthGame">
+          <h2 class="main-div_gamenames">Введіть 3 числа</h2>
+          <div class="main-eighthGame-inpDiv">
+            <input
+              id="eighthGameInputNum1"
+              placeholder="Введіть число"
+              class="main-eighthGame-inpDiv_inp"
+            />
+            <input
+              id="eighthGameInputNum2"
+              placeholder="Введіть число"
+              class="main-eighthGame-inpDiv_inp"
+            />
+            <input
+              id="eighthGameInputNum3"
+              placeholder="Введіть число"
+              class="main-eighthGame-inpDiv_inp"
+            />
+          </div>
+          <p
+            class="main-eighthGame_text"
+            id="eighthGameText"
+            onclick="findMax()"
+          >
+            Найбільше число, яке ви ввели - (число)
+          </p>
+        </div>
+
         <!-- 8 -->
 
         <!-- 9 -->
@@ -220,7 +247,62 @@
 
         <!-- 10 -->
         <div class="main-div_line"></div>
-        <h2 class="main-div_gamenames">Обери вченого/их</h2>
+        <section class="scientist-section">
+          <h2 class="visually-hidden"></h2>
+          <div class="container">
+            <div class="parent-div-scientist"></div>
+            <ul class="scientist-ul">
+              <li class="scientist-li">
+                <div id="scientist-button-1" class="scientist-li-button">
+                  Які вчені народилися в 19 ст.
+                </div>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-2" class="scientist-li-button">
+                  Відсортувати вчених за алфавітом
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-3" class="scientist-li-button">
+                  Відсортувати вчених за кількістю прожитих років
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-4" class="scientist-li-button">
+                  Знайти вченого, який народився найпізніше
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-5" class="scientist-li-button">
+                  Знайти рік народження Albert Einshtein
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-6" class="scientist-li-button">
+                  Знайти вчених, прізвища яких починаються на на літеру “С”
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-7" class="scientist-li-button">
+                  Видалити всіх вчених, ім’я яких починається на “А”
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-8" class="scientist-li-button">
+                  Знайти вченого, який прожив найдовше і вченого, який прожив
+                  найменше
+                </button>
+              </li>
+              <li class="scientist-li">
+                <button id="scientist-button-9" class="scientist-li-button">
+                  Знайти вчених, в яких співпадають перші літери імені і
+                  прізвища
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
         <!-- 10 -->
       </div>
     </main>
@@ -230,31 +312,39 @@
           src="./images/icons/footerLogo.svg"
           alt="main-fourthGame-divOptions"
         />
-        <ul>
-          <li>
-            <a class="" href="tel:+3801234567890"> Тел: +380 (123) 456 78 90</a>
+        <ul class="footer-ul">
+          <li class="footer-ul-list">
+            <a class="footer-ul-list_link" href="tel:+3801234567890">
+              Тел: +380 (123) 456 78 90</a
+            >
           </li>
-          <li>
-            <a class="" href="mailto:simplychoc@gmail.com"
+          <li class="footer-ul-list">
+            <a class="footer-ul-list_link" href="mailto:simplychoc@gmail.com"
               >E-Mail: codingmagic@gmail.com</a
             >
           </li>
-          <li>
-            <a class="" href="#"> Facebook: CodingMagic </a>
+          <li class="footer-ul-list">
+            <a class="footer-ul-list_link" href="#"> Facebook: CodingMagic </a>
           </li>
-          <li>
-            <a class="" href="#"> Twitter: CodingMagic </a>
+          <li class="footer-ul-list">
+            <a class="footer-ul-list_link" href="#"> Twitter: CodingMagic </a>
           </li>
-          <li>
-            <a class="" href="#"> Instagram: CodingMagic </a>
+          <li class="footer-ul-list">
+            <a class="footer-ul-list_link" href="#"> Instagram: CodingMagic </a>
           </li>
         </ul>
-        <div>
-          <form>
-            <input type="text" placeholder="Ваша ел.адреса..." />
-            <button type="button">Підписатись</button>
+        <div class="footer-lDiv">
+          <form class="footer-lDiv-form">
+            <input
+              type="text"
+              placeholder="Ваша ел.адреса..."
+              class="footer-lDiv-form_input"
+            />
+            <button type="button" class="footer-lDiv-form_btn">
+              Підписатись
+            </button>
           </form>
-          <p>
+          <p class="footer-lDiv_pUnderForm">
             *Підписавшись, Ви зможете ортимувати інформаццію про новинки на
             сайті
           </p>

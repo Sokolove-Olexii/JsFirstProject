@@ -1,7 +1,64 @@
 .footer {
   padding: 75px 174px 75px 175px;
+
   &-div {
     display: flex;
     justify-content: space-between;
+  }
+  &-ul {
+    &-list {
+      &_link {
+        color: rgb(0, 0, 0);
+        // font-family: Montserrat Alternates;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 170%;
+      }
+    }
+  }
+  &-lDiv {
+    margin-top: 36px;
+    &-form {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      &_input {
+        outline: none;
+        border: none;
+        color: rgb(126, 126, 126);
+        // font-family: Montserrat Alternates;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        width: 204px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px 80px 10px 10px;
+        border-radius: 20px;
+        background: rgb(215, 215, 215);
+      }
+      &_btn {
+        border: none;
+        color: rgb(255, 255, 255);
+        // font-family: Montserrat Alternates;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        display: flex;
+        margin: 0 auto;
+        padding: 10px;
+        margin-left: 36px;
+        border-radius: 20px;
+        background: rgb(0, 0, 0);
+      }
+    }
+    &_pUnderForm {
+      color: rgb(0, 0, 0);
+      // font-family: Montserrat Alternates;
+      font-size: 6px;
+      font-weight: 400;
+      line-height: 7px;
+    }
   }
 }

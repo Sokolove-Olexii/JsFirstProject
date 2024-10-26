@@ -256,6 +256,52 @@ button {
   box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
   background: rgb(215, 215, 215);
 }
+.main-eighthGame {
+  margin: 36px 0;
+}
+.main-eighthGame-inpDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 38px;
+  margin: 36px 0;
+}
+.main-eighthGame-inpDiv_inp {
+  color: rgb(126, 126, 126);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  width: 135px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(215, 215, 215);
+}
+.main-eighthGame_text {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.main .scientist-ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main .scientist-li-button {
+  border-radius: 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(0, 0, 0);
+  padding: 20px 10px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0%;
+}
 
 .footer {
   padding: 75px 174px 75px 175px;
@@ -263,6 +309,54 @@ button {
 .footer-div {
   display: flex;
   justify-content: space-between;
+}
+.footer-ul-list_link {
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 170%;
+}
+.footer-lDiv {
+  margin-top: 36px;
+}
+.footer-lDiv-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.footer-lDiv-form_input {
+  outline: none;
+  border: none;
+  color: rgb(126, 126, 126);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  width: 204px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px 80px 10px 10px;
+  border-radius: 20px;
+  background: rgb(215, 215, 215);
+}
+.footer-lDiv-form_btn {
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+  margin-left: 36px;
+  border-radius: 20px;
+  background: rgb(0, 0, 0);
+}
+.footer-lDiv_pUnderForm {
+  color: rgb(0, 0, 0);
+  font-size: 6px;
+  font-weight: 400;
+  line-height: 7px;
 }
 
 .header {
