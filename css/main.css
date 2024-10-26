@@ -54,21 +54,58 @@ button {
   display: flex;
   align-items: center;
 }
-.main-firstGame_input {
+.main-firstGame {
+  margin: 36px 0 36px;
+}
+.main-firstGame_div {
+  margin-top: 36px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.main-firstGame-form {
+  display: inline-block;
+  position: relative;
+}
+.main-firstGame-form_input {
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border: none;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  height: 35px;
   border-radius: 20px;
   background: rgb(215, 215, 215);
 }
+.main-firstGame-form_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+  border: none;
+  display: inline-block;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  padding: 10px;
+  border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
+}
 .main-firstGame_text {
+  margin-left: 149px;
   font-family: Montserrat Alternates;
   font-size: 12px;
   font-weight: 400;
   line-height: 15px;
 }
 .main-secondGame {
+  margin: 36px 0 36px;
+}
+.main-secondGame_div {
+  margin-top: 36px;
   justify-content: space-between;
   display: flex;
   align-items: center;
-  margin: 36px 0 36px;
 }
 .main-secondGame-form {
   display: inline-block;
@@ -101,6 +138,131 @@ button {
 .main-secondGame_userWin {
   color: rgb(236, 182, 31);
   margin-left: 149px;
+}
+.main-thirdGame {
+  position: relative;
+  margin: 36px 0 36px;
+}
+.main-thirdGame-centreDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-thirdGame-choices {
+  margin: 36px 0;
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+}
+.main-thirdGame-choices_btn {
+  cursor: pointer;
+  border: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgb(0, 0, 0);
+}
+.main-thirdGame_result {
+  margin-bottom: 36px;
+  color: rgb(3, 153, 0);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.main-thirdGame-divPcResult {
+  display: flex;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: rgb(0, 0, 0);
+}
+.main-thirdGame-divPcResult_p {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.main-thirdGame-divScore {
+  display: flex;
+  text-align: start;
+  position: absolute;
+  top: 36px;
+  right: -207px;
+}
+.main-thirdGame-divScore_p {
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 170%;
+}
+.main-fourthGame {
+  margin: 36px 0;
+}
+.main-fourthGame-divPosition {
+  margin: 36px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+}
+.main-fourthGame_input {
+  color: rgb(126, 126, 126);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  width: 135px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(215, 215, 215);
+}
+.main-fourthGame-divOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.main-fourthGame-divOptions_btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(0, 0, 0);
+  display: flex;
+  padding: 5px 10px 5px 10px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.main-fourthGame_inputResult {
+  color: rgb(126, 126, 126);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  width: 118px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(215, 215, 215);
+}
+
+.footer {
+  padding: 75px 174px 75px 175px;
+}
+.footer-div {
+  display: flex;
+  justify-content: space-between;
 }
 
 .header {

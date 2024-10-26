@@ -23,7 +23,7 @@ btn.addEventListener("click", () => {
 });
 
 //3
-const choices = document.querySelectorAll(".choice");
+const choices = document.querySelectorAll(".main-thirdGame-choices_btn");
 const message = document.getElementById("message");
 const resultText = document.getElementById("result");
 const scoreText = document.getElementById("score");
@@ -40,6 +40,7 @@ function getComputerChoice() {
 
 function determineWinner(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
+    result.style.color = "rgb(236, 182, 31)";
     return "Нічия!";
   } else if (
     (userChoice === "камінь" && computerChoice === "ножиці") ||
@@ -47,9 +48,11 @@ function determineWinner(userChoice, computerChoice) {
     (userChoice === "папір" && computerChoice === "камінь")
   ) {
     userScore++;
+    result.style.color = "#039900";
     return "Ви виграли раунд!";
   } else {
     computerScore++;
+    result.style.color = "#990000";
     return "Комп'ютер виграв раунд!";
   }
 }
@@ -60,9 +63,9 @@ choices.forEach((choice) => {
     const computerChoice = getComputerChoice();
     const result = determineWinner(userChoice, computerChoice);
 
-    message.textContent = `Ви обрали: ${userChoice}, Комп'ютер обрав: ${computerChoice}`;
+    message.textContent = computerChoice;
     resultText.textContent = result;
-    scoreText.textContent = `Рахунок: Комп'ютер - ${computerScore} | Ви - ${userScore}`;
+    scoreText.textContent = `Рахунок: Комп'ютер - ${computerScore} Ви - ${userScore}`;
   });
 });
 

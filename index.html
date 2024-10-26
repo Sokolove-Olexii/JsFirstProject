@@ -39,76 +39,149 @@
         <!-- 1 -->
         <div class="main-firstGame">
           <h2 class="main-div_gamenames">Перевір в який рік ти народився</h2>
-          <input
-            type="number"
-            placeholder="Введіть рік народження"
-            class="main-firstGame_input"
-          />
-          <p class="main-firstGame_text">Ви народилися у високосний рік!</p>
+          <div class="main-firstGame_div">
+            <form action="#" class="main-firstGame-form">
+              <input
+                type="number"
+                placeholder="Введіть рік народження"
+                class="main-firstGame-form_input"
+              />
+              <button type="button" class="main-firstGame-form_btn">
+                <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
+              </button>
+            </form>
+            <p class="main-firstGame_text">
+              Дізнайтеся у який рік ви народилися!
+            </p>
+          </div>
         </div>
         <!-- 1 -->
 
         <!-- 2 -->
         <div class="main-div_line"></div>
-        <h2 class="main-div_gamenames">Вгадай число, яке загадав комп’ютер</h2>
         <div class="main-secondGame">
-          <form class="main-secondGame-form">
-            <input
-              id="input"
-              class="main-secondGame-form_input"
-              placeholder="Введіть число"
-            />
-            <button id="button" type="button" class="main-secondGame-form_btn">
-              <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
-            </button>
-          </form>
+          <h2 class="main-div_gamenames">
+            Вгадай число, яке загадав комп’ютер
+          </h2>
+          <div class="main-secondGame_div">
+            <form class="main-secondGame-form">
+              <input
+                id="input"
+                class="main-secondGame-form_input"
+                placeholder="Введіть число"
+              />
+              <button
+                id="button"
+                type="button"
+                class="main-secondGame-form_btn"
+              >
+                <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
+              </button>
+            </form>
 
-          <p id="userWin" class="main-secondGame_userWin">Загадайте число!</p>
-          <p id="p" class="main-secondGame_textPc"></p>
+            <p id="userWin" class="main-secondGame_userWin">Загадайте число!</p>
+            <p id="p" class="main-secondGame_textPc"></p>
+          </div>
         </div>
         <!-- 2 -->
 
         <!-- 3 -->
-        <div>
-          <div class="main-div_line"></div>
+        <div class="main-div_line"></div>
+
+        <div class="main-thirdGame">
           <h2 class="main-div_gamenames">Камінь - ножиці - папір</h2>
-
-          <div class="choices">
-            <div class="choice" data-choice="камінь">🪨</div>
-            <div class="choice" data-choice="ножиці">✂️</div>
-            <div class="choice" data-choice="папір">📄</div>
+          <div class="main-thirdGame-centreDiv">
+            <div class="main-thirdGame_positionDiv">
+              <div class="main-thirdGame-choices">
+                <button class="main-thirdGame-choices_btn" data-choice="камінь">
+                  <img src="./images/icons/stone.svg" alt="rock" />
+                </button>
+                <button class="main-thirdGame-choices_btn" data-choice="ножиці">
+                  <img src="./images/icons/scissors.svg" alt="scissors" />
+                </button>
+                <button class="main-thirdGame-choices_btn" data-choice="папір">
+                  <img src="./images/icons/paper.svg" alt="paper" />
+                </button>
+              </div>
+            </div>
+            <p id="result" class="main-thirdGame_result">Зробіть свій вибір!</p>
+            <div class="main-thirdGame-divPcResult">
+              <p id="message" class="main-thirdGame-divPcResult_p">
+                Варіант комп’ютера
+              </p>
+            </div>
           </div>
-          <p id="message">Зробіть свій вибір!</p>
-          <p class="result" id="result"></p>
+          <div class="main-thirdGame-divScore">
+            <p id="score" class="main-thirdGame-divScore_p">
+              Рахунок: <br />
+              Комп'ютер - 0 <br />
+              Ви - 0
+            </p>
+          </div>
         </div>
 
-        <div>
-          <p id="score">Рахунок: Комп'ютер - 0 | Ви - 0</p>
-        </div>
         <!-- 3 -->
 
         <!-- 4 -->
-        <div class="calculator">
-          <div class="main-div_line"></div>
+        <div class="main-div_line"></div>
+        <div class="main-fourthGame">
           <h2 class="main-div_gamenames">Калькулятор</h2>
-
-          <input type="number" id="calcNum1Type" class="calcNumInput" />
-          <div class="calbBtnPosition">
-            <button type="button" class="button-calc" id="btnPlus">+</button>
-            <button type="button" class="button-calc" id="btnMultiply">
-              *
+          <div class="main-fourthGame-divPosition">
+            <input
+              id="calcNum1Type"
+              class="main-fourthGame_input"
+              placeholder="Введіть число"
+            />
+            <div class="main-fourthGame-divOptions">
+              <button
+                type="button"
+                class="main-fourthGame-divOptions_btn"
+                id="btnPlus"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                class="main-fourthGame-divOptions_btn"
+                id="btnMultiply"
+              >
+                *
+              </button>
+              <button
+                type="button"
+                class="main-fourthGame-divOptions_btn"
+                id="btnMinus"
+              >
+                -
+              </button>
+              <button
+                type="button"
+                class="main-fourthGame-divOptions_btn"
+                id="btnDivide"
+              >
+                /
+              </button>
+            </div>
+            <input
+              id="calcNum2Type"
+              class="main-fourthGame_input"
+              placeholder="Введіть число"
+            />
+            <button
+              type="button"
+              id="calcResult"
+              class="main-fourthGame-divOptions_btn"
+            >
+              =
             </button>
-            <button type="button" class="button-calc" id="btnMinus">-</button>
-            <button type="button" class="button-calc" id="btnDivide">/</button>
+            <input
+              type="number"
+              id="calcNumResult"
+              class="main-fourthGame_inputResult"
+              placeholder="Результат"
+              readonly
+            />
           </div>
-          <input type="number" id="calcNum2Type" class="calcNumInput" />
-          <button type="button" id="calcResult" class="button-calc">=</button>
-          <input
-            type="number"
-            id="calcNumResult"
-            class="calcNumInput"
-            readonly
-          />
         </div>
         <!-- 4 -->
 
@@ -151,7 +224,43 @@
         <!-- 10 -->
       </div>
     </main>
-    <footer class="footer" id="footer"></footer>
+    <footer class="footer" id="footer">
+      <div class="footer-div">
+        <img
+          src="./images/icons/footerLogo.svg"
+          alt="main-fourthGame-divOptions"
+        />
+        <ul>
+          <li>
+            <a class="" href="tel:+3801234567890"> Тел: +380 (123) 456 78 90</a>
+          </li>
+          <li>
+            <a class="" href="mailto:simplychoc@gmail.com"
+              >E-Mail: codingmagic@gmail.com</a
+            >
+          </li>
+          <li>
+            <a class="" href="#"> Facebook: CodingMagic </a>
+          </li>
+          <li>
+            <a class="" href="#"> Twitter: CodingMagic </a>
+          </li>
+          <li>
+            <a class="" href="#"> Instagram: CodingMagic </a>
+          </li>
+        </ul>
+        <div>
+          <form>
+            <input type="text" placeholder="Ваша ел.адреса..." />
+            <button type="button">Підписатись</button>
+          </form>
+          <p>
+            *Підписавшись, Ви зможете ортимувати інформаццію про новинки на
+            сайті
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <script src="./js/index.js"></script>
   </body>
