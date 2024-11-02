@@ -1,3 +1,24 @@
+//1
+const yearGameInput = document.getElementById("main-firstGame-form_input");
+const yearGameBtn = document.getElementById("main-firstGame-form_btn");
+const yearGameResult = document.getElementById("main-firstGame_text");
+
+yearGameBtn.addEventListener("click", yearFunction);
+function yearFunction() {
+  if (yearGameInput.value === "") {
+    yearGameResult.textContent = "Ви не заповнили поле";
+  } else {
+    const value = Number(yearGameInput.value);
+    if ((value % 4 === 0 && value % 100 !== 0) || value % 400 === 0) {
+      yearGameResult.style.color = "#039900";
+      yearGameResult.textContent = "Ви народились у високосний рік!";
+    } else {
+      yearGameResult.style.color = "#990000";
+      yearGameResult.textContent = "Ви народились у невисокосний рік.";
+    }
+  }
+}
+
 //2
 const btn = document.getElementById("button");
 const input = document.getElementById("input");
@@ -138,28 +159,90 @@ document.getElementById("calcResult").addEventListener("click", function () {
 });
 
 //5
-function convertMinutesToHoursAndMinutes(minutes) {
-  const hours = Math.floor(minutes / 60); // Розрахунок годин
-  const remainingMinutes = minutes % 60; // Розрахунок залишкових хвилин
-  return `${hours}:${remainingMinutes}`;
-}
-
-document.getElementById("convertBtn").addEventListener("click", function () {
-  const minutes = parseInt(document.getElementById("minutesInput").value);
-
-  if (isNaN(minutes) || minutes < 0) {
-    alert("Будь ласка, введіть правильне число хвилин.");
+const timeGameInput = document.getElementById("minutesInput");
+const timeGameBtn = document.getElementById("convertBtn");
+const timeGameResult = document.getElementById("hourResult");
+timeGameBtn.addEventListener("click", calculateTimeFunction);
+function calculateTimeFunction() {
+  event.preventDefault();
+  let value = Number(timeGameInput.value);
+  // 500
+  if (isNaN(value) || value <= 0) {
+    timeGameResult.textContent = "Ви не заповнили поле";
     return;
+  } else {
+    // Округлення, value (кількість секунд), де 3600 - кількість секунд в одній годині, а 24 кількість годин у дні
+    let days = Math.floor(value / (24 * 3600));
+    // Перевизначили value, отримали остачу від ділення на 86400 і записали назад
+    value %= 24 * 3600;
+    // Все що залишилось переробили в години, де 3600 - кількість секунд в одній годині
+    let hours = Math.floor(value / 3600);
+    // Відняли все, що залишилось від value
+    value %= 3600;
+    // все що залишилось від value переробили в секунди, отримавши остачу від ділення
+    let seconds = Math.floor(value % 60);
+    // все що залишилось від value переробили в хвилини
+    let minutes = Math.floor(value / 60);
+
+    // 3600 секунд в годині
+    // 3600 * 24 в дні
+    // Обчислення годин, що залишаються після виділення днів
+
+    // Обчислення хвилин, що залишаються після виділення годин
+
+    const message = `${days} дн, ${hours}:${minutes}:${seconds}`;
+    timeGameResult.textContent = message;
   }
-
-  const hourResult = convertMinutesToHoursAndMinutes(minutes);
-
-  document.getElementById("hourResult").textContent = `${hourResult}`;
-});
-
+}
 //6
 
 //7
+const field = document.querySelector(".main-seventhGame-footballField");
+const cursor = document.getElementById("mouse-svg");
+const ball = document.getElementById("ball-svg");
+const useElementForBall = document.querySelector(".useElementForBall");
+
+// field.addEventListener("mousemove", (e) => {
+//   //     getBoundingClientRect() — це метод, який повертає інформацію про розташування та розмір елемента на сторінці. Коли ви викликаєте цей метод для якогось HTML-елемента, він повертає об'єкт із такими властивостями:
+
+//   // top — відстань від верхнього краю видимої частини вікна браузера до верхнього краю елемента.
+//   // left — відстань від лівого краю вікна до лівого краю елемента.
+//   // bottom — відстань від верхнього краю вікна до нижнього краю елемента.
+//   // right — відстань від лівого краю вікна до правого краю елемента.
+//   // width — ширина елемента.
+//   // height — висота елемента.
+//   // Отримуємо позицію поля на сторінці
+//   const fieldRect = field.getBoundingClientRect();
+//   // Рахуємо координати курсора відносно поля
+//   const x = e.clientX - fieldRect.left - 30;
+//   const y = e.clientY - fieldRect.top - 10;
+
+//   // Встановлюємо позицію кастомного курсору
+//   ball.style.left = `${x}px`;
+//   ball.style.top = `${y}px`;
+// });
+// const randomHexColorCode = () => {
+//   let n = (Math.random() * 0xfffff * 1000000).toString(16);
+//   return "#" + n.slice(0, 6);
+// };
+
+field.addEventListener("mousedown", (e) => {
+  const fieldRect = field.getBoundingClientRect();
+  const x = e.clientX - fieldRect.left - 25;
+  const y = e.clientY - fieldRect.top - 25;
+  ball.style.left = `${x}px`;
+  ball.style.top = `${y}px`;
+  // Remove the rotate class (if it exists)
+  ball.classList.remove("rotate");
+
+  // Trigger reflow: this forces the browser to re-compute styles before re-adding the class
+  void ball.offsetWidth; // this line forces reflow
+
+  // Now re-add the class to restart the animation
+  ball.classList.add("rotate");
+
+  // ball.style.fill = randomHexColorCode();
+});
 
 //8
 function findMax() {

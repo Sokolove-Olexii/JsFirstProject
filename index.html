@@ -45,12 +45,17 @@
                 type="number"
                 placeholder="Введіть рік народження"
                 class="main-firstGame-form_input"
+                id="main-firstGame-form_input"
               />
-              <button type="button" class="main-firstGame-form_btn">
+              <button
+                type="button"
+                class="main-firstGame-form_btn"
+                id="main-firstGame-form_btn"
+              >
                 <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
               </button>
             </form>
-            <p class="main-firstGame_text">
+            <p class="main-firstGame_text" id="main-firstGame_text">
               Дізнайтеся у який рік ви народилися!
             </p>
           </div>
@@ -187,15 +192,31 @@
 
         <!-- 5 -->
         <div class="main-div_line"></div>
-        <h2 class="main-div_gamenames">Калькулятор часу</h2>
-
-        <input
-          type="number"
-          id="minutesInput"
-          placeholder="Введіть кількість хвилин"
-        />
-        <button id="convertBtn">Конвертувати</button>
-        <p id="hourResult"></p>
+        <section class="main-fifthGame">
+          <h2 class="main-div_gamenames">Калькулятор часу</h2>
+          <div class="main-fifthGame-convert">
+            <form class="main-fifthGame-form">
+              <input
+                type="number"
+                id="minutesInput"
+                placeholder="Введіть число"
+                c
+                class="main-fifthGame-form_input"
+              />
+              <button
+                id="convertBtn"
+                class="main-fifthGame-form_btn"
+                type="subm"
+              >
+                <img src="./images/icons/sircleBtn.svg" alt="sircleBtn" />
+              </button>
+            </form>
+            <div class="main-fifthGame-convert_divide"></div>
+            <p id="hourResult" class="main-fifthGame-convert_result">
+              Введіть число
+            </p>
+          </div>
+        </section>
         <!-- 5 -->
 
         <!-- 6 -->
@@ -205,7 +226,19 @@
 
         <!-- 7 -->
         <div class="main-div_line"></div>
-        <h2 class="main-div_gamenames">Футбол</h2>
+        <section class="main-seventhGame">
+          <h2 class="main-div_gamenames">Футбол</h2>
+          <div class="main-seventhGame_pos">
+            <div class="main-seventhGame-footballField">
+              <img
+                src="./images/icons/football.svg"
+                alt="football"
+                class="main-seventhGame-footballField_ball"
+                id="ball-svg"
+              />
+            </div>
+          </div>
+        </section>
         <!-- 7 -->
 
         <!-- 8 -->

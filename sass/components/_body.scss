@@ -242,6 +242,115 @@
       background: rgb(215, 215, 215);
     }
   }
+  //5
+
+  &-fifthGame {
+    margin: 36px 0;
+    &-convert {
+      margin-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &_divide {
+        margin: 0 33px;
+        width: 100px;
+        border: 1px dashed rgb(0, 0, 0);
+      }
+    }
+    &-form {
+      display: inline-block;
+      position: relative;
+      &_btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        // z-index: 9;
+        outline: none;
+        border: none;
+        display: inline-block;
+        background: rgb(0, 0, 0);
+        color: #fff;
+        padding: 10px;
+        border-radius: 0px 20px 20px 0px;
+        cursor: pointer;
+      }
+      &_input {
+        color: rgb(126, 126, 126);
+        // font-family: Montserrat Alternates;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+        outline: none;
+        border: none;
+        padding: 10px;
+        display: block;
+        width: 150px;
+        height: 35px;
+        border-radius: 20px;
+        background: rgb(215, 215, 215);
+      }
+    }
+  }
+  //7
+  &-seventhGame {
+    margin: 36px 0;
+    &-footballField {
+      margin-top: 36px;
+      box-sizing: border-box;
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 37px;
+      background: rgb(90, 187, 88);
+      width: 720px;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      /* Сховати звичайний курсор миші на футбольному полі */
+      // cursor: none;
+      &_ball {
+        top: 85px;
+        left: 92px;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        transition: top 700ms ease-out, left 700ms ease-in;
+        // rotating keyframe
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        &.rotate {
+          animation: rotate 1s linear;
+        }
+
+        // -webkit-animation: spin 4s linear infinite;
+        // -moz-animation: spin 4s linear infinite;
+        // animation: spin 4s linear infinite;
+        // @-moz-keyframes spin {
+        //   100% {
+        //     -moz-transform: rotate(360deg);
+        //   }
+        // }
+        // @-webkit-keyframes spin {
+        //   100% {
+        //     -webkit-transform: rotate(360deg);
+        //   }
+        // }
+        // @keyframes spin {
+        //   100% {
+        //     -webkit-transform: rotate(360deg);
+        //     transform: rotate(360deg);
+        //   }
+        // }
+      }
+    }
+  }
+
   //8
   &-eighthGame {
     margin: 36px 0;
