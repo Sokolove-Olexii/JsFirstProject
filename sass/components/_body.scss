@@ -384,6 +384,68 @@
       line-height: 15px;
     }
   }
+  //9
+  &-slider {
+    margin: 36px 0;
+    &_position {
+      margin: 20px 0;
+      gap: 328px;
+      align-items: center;
+      display: flex;
+    }
+    &-content {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      background: rgb(217, 217, 217);
+      margin: 20px auto;
+      overflow: hidden;
+      &_img {
+        width: 150px;
+        height: 150px;
+      }
+      &_line {
+        width: 900px;
+        height: 150px;
+        display: flex;
+        position: relative;
+        left: 0;
+        transition: all ease 1.5s;
+      }
+    }
+    &-arrow {
+      cursor: pointer;
+    }
+    &_name {
+      color: rgb(0, 0, 0);
+      // font-family: Montserrat Alternates;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+    }
+    &_about {
+      margin: 20px 0 24px;
+      color: rgb(0, 0, 0);
+      // font-family: Montserrat Alternates;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+    }
+    &_dot {
+      height: 3px;
+      width: 18px;
+      margin: 0 5px;
+      border-radius: 3px;
+      background: rgb(217, 217, 217);
+      display: inline-block;
+      transition: background-color 0.5s ease;
+      &.active {
+        transition: width 1.5s ease;
+        width: 30px;
+        background-color: rgb(121, 121, 121);
+      }
+    }
+  }
   //10
   .scientist-ul {
     display: flex;
@@ -404,3 +466,19 @@
     letter-spacing: 0%;
   }
 }
+// .div1 {
+//   width: 150px;
+//   background-color: blue;
+// }
+// .div2 {
+//   width: 150px;
+//   background-color: orange;
+// }
+// .div3 {
+//   width: 150px;
+//   background-color: black;
+// }
+// .div4 {
+//   width: 150px;
+//   background-color: red;
+// }

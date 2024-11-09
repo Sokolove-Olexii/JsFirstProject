@@ -419,3 +419,37 @@ const buttonScientist7 = document.getElementById("scientist-button-7");
 const buttonScientist8 = document.getElementById("scientist-button-8");
 const buttonScientist9 = document.getElementById("scientist-button-9");
 console.log();
+
+//9 Slider
+let offset = 0;
+const sliderLine = document.querySelector(".main-slider-content_line");
+const dots = document.querySelectorAll(".main-slider_dot");
+
+function updateDots(index) {
+  dots.forEach((dot, i) => {
+    if (i === index) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+
+document.getElementById("slider-next").addEventListener("click", function () {
+  offset = offset + 150;
+  if (offset > 900) {
+    offset = 0;
+  }
+  sliderLine.style.left = -offset + "px";
+  updateDots(offset / 150);
+});
+
+document.getElementById("slider-prev").addEventListener("click", function () {
+  offset = offset - 150;
+  if (offset < 0) {
+    offset = 900;
+  }
+  sliderLine.style.left = -offset + "px";
+  updateDots(offset / 150);
+});
+0;
