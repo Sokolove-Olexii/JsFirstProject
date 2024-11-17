@@ -272,6 +272,38 @@ function findMax() {
 }
 
 //9
+let offset = 0;
+const sliderLine = document.querySelector(".main-slider-content_line");
+const dots = document.querySelectorAll(".main-slider_dot");
+
+function updateDots(index) {
+  dots.forEach((dot, i) => {
+    if (i === index) {
+      dot.classList.add("active");
+    } else {
+      dot.classList.remove("active");
+    }
+  });
+}
+
+document.getElementById("slider-next").addEventListener("click", function () {
+  offset = offset + 150;
+  if (offset > 900) {
+    offset = 0;
+  }
+  sliderLine.style.left = -offset + "px";
+  updateDots(offset / 150);
+});
+
+document.getElementById("slider-prev").addEventListener("click", function () {
+  offset = offset - 150;
+  if (offset < 0) {
+    offset = 900;
+  }
+  sliderLine.style.left = -offset + "px";
+  updateDots(offset / 150);
+});
+0;
 
 //10
 const scientists = [
@@ -420,36 +452,110 @@ const buttonScientist8 = document.getElementById("scientist-button-8");
 const buttonScientist9 = document.getElementById("scientist-button-9");
 console.log();
 
-//9 Slider
-let offset = 0;
-const sliderLine = document.querySelector(".main-slider-content_line");
-const dots = document.querySelectorAll(".main-slider_dot");
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
 
-function updateDots(index) {
-  dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add("active");
-    } else {
-      dot.classList.remove("active");
-    }
+//Global Variables
+let player = document.getElementById("player");
+let block = document.getElementById("block");
+let road = document.getElementById("road");
+let counter = 0;
+let gameStarted = false;
+let collisionEvent = new Event("collision");
+let scoreUpEvent = new Event("scoreUp");
+
+function userInput() {
+  if (!gameStarted) {
+    gameStarted = true;
+    road.style.animation = "road infinite linear";
+    block.style.animation = "block 1.5s infinite linear"; // Add animation to the block
+    gameLoop();
+    jump();
+  } else {
+    jump();
+  }
+}
+
+// GameLoop Function
+function gameLoop() {
+  // Check for collision between player and block
+  var playerRect = player.getBoundingClientRect();
+  var blockRect = block.getBoundingClientRect();
+
+  if (
+    playerRect.right >= blockRect.left &&
+    playerRect.left <= blockRect.right &&
+    playerRect.bottom >= blockRect.top &&
+    playerRect.top <= blockRect.bottom
+  ) {
+    // Collision occurred, trigger the custom event
+    player.dispatchEvent(collisionEvent);
+  } else {
+    // No Collision occurred, counter++
+    player.dispatchEvent(scoreUpEvent);
+  }
+  if (gameStarted) {
+    requestAnimationFrame(gameLoop); // Continuously call gameLoop
+  }
+}
+
+// Jump function
+// function jump() {
+//   if (player.classList.contains("animate")) {
+//     return;
+//   }
+//   player.classList.add("animate");
+//   setTimeout(function () {
+//     player.classList.remove("animate");
+//   }, 300);
+// }
+
+function jump() {
+  if (player.classList.contains("animate")) return;
+
+  player.classList.add("animate");
+
+  player.addEventListener("animationend", function removeAnimation() {
+    player.classList.remove("animate");
+    player.removeEventListener("animationend", removeAnimation);
   });
 }
 
-document.getElementById("slider-next").addEventListener("click", function () {
-  offset = offset + 150;
-  if (offset > 900) {
-    offset = 0;
+// Function to handle the SpaceBar keydown event
+function handleKeyDown(event) {
+  if (event.code === "Space" && event.target === document.body) {
+    userInput();
   }
-  sliderLine.style.left = -offset + "px";
-  updateDots(offset / 150);
+}
+
+// Event listener for the collision event
+player.addEventListener("collision", function (event) {
+  // Handle the collision event
+  gameStarted = false;
+  block.style.animation = "none";
+  counter = 0;
+  document.getElementById("scoreSpan").textContent = Math.floor(counter / 100);
+  document.getElementById("game").style.backgroundColor("red");
 });
 
-document.getElementById("slider-prev").addEventListener("click", function () {
-  offset = offset - 150;
-  if (offset < 0) {
-    offset = 900;
-  }
-  sliderLine.style.left = -offset + "px";
-  updateDots(offset / 150);
+//Event listener for scoreUPevent
+player.addEventListener("scoreUp", function (event) {
+  //Handle scoreUp event
+  counter++;
+  updateScore();
 });
-0;
+
+// Function to update the score
+function updateScore() {
+  var scoreSpan = document.getElementById("scoreSpan");
+  scoreSpan.textContent = Math.floor(counter / 100);
+}
+
+// Add event listener to the document object
+document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("mousedown", userInput);
