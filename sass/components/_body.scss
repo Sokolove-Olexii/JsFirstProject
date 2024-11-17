@@ -480,10 +480,11 @@
 ////////////////////////////////////////////////
 ///
 .game {
+  position: relative;
   border: 5px solid black;
   margin: 36px 0 36px;
-  width: 500px;
-  height: 200px;
+  width: 630px;
+  height: 241px;
   // flex: 1 0 auto;
 }
 .player {
@@ -519,7 +520,13 @@
 }
 
 .road {
-  
+  width: 620px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  background-image: url("../../images/Google-dino/track.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .block {
