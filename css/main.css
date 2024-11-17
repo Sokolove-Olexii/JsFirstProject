@@ -458,7 +458,15 @@ button {
   background-size: cover;
   background-position: center;
   position: relative;
-  top: 150px;
+  top: 170px;
+}
+
+.player.running1 {
+  background-image: url("../../images/Google-dino/dino-run1.png");
+}
+
+.player.running2 {
+  background-image: url("../../images/Google-dino/dino-run2.png");
 }
 
 .animate {
@@ -489,30 +497,48 @@ button {
   position: absolute;
   bottom: 0;
   background-image: url("../../images/Google-dino/track.png");
-  background-size: cover;
-  background-position: center;
+  background-size: 100%;
+  background-repeat: repeat-x;
+  will-change: background-position;
 }
 
+.animate-road {
+  animation: moveRoad 1.5s linear infinite;
+}
+
+@keyframes moveRoad {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -620px; /* Должно быть равно ширине элемента дороги */
+  }
+}
 .block {
+  display: none;
   width: 20px;
   height: 40px;
   background-size: cover;
   background-position: center;
   background-image: url("../../images/Google-dino/cactus1.png");
-  position: relative;
-  top: 130px;
-  left: 500px;
+  position: absolute;
+  top: 180px;
+  left: 600px;
+}
+
+.fix-block {
+  display: flex;
 }
 
 @keyframes block {
   0% {
-    left: 500px;
+    left: 600px;
   }
   100% {
-    left: -20px;
+    left: -30px;
   }
 }
-#score {
+.score {
   color: black;
   text-align: center;
   font-style: italic;

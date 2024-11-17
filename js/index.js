@@ -468,19 +468,36 @@ let counter = 0;
 let gameStarted = false;
 let collisionEvent = new Event("collision");
 let scoreUpEvent = new Event("scoreUp");
+let isRunning = false;
+let runAnimationInterval;
 
 function userInput() {
   if (!gameStarted) {
+    let isRun1 = true; // Переключение между dino1 и dino2
+    // Запуск анимации с интервалом
+    runAnimationInterval = setInterval(() => {
+      if (gameStarted) {
+        if (isRun1) {
+          player.classList.add("running1");
+          player.classList.remove("running2");
+        } else {
+          player.classList.add("running2");
+          player.classList.remove("running1");
+        }
+        isRun1 = !isRun1; // Переключить состояние
+      }
+    }, 200); // Частота переключения (200 мс)
+
     gameStarted = true;
-    road.style.animation = "road infinite linear";
-    block.style.animation = "block 1.5s infinite linear"; // Add animation to the block
+    block.classList.add("fix-block");
+    road.classList.add("animate-road"); // Включить анимацию дороги
+    block.style.animation = "block 1.5s linear infinite"; // Включить анимацию кактуса
     gameLoop();
     jump();
   } else {
     jump();
   }
 }
-
 // GameLoop Function
 function gameLoop() {
   // Check for collision between player and block
@@ -537,6 +554,12 @@ function handleKeyDown(event) {
 player.addEventListener("collision", function (event) {
   // Handle the collision event
   gameStarted = false;
+  //need to stop the game and tag "game over!"
+  //Stop DINO RUN
+  clearInterval(runAnimationInterval); // Остановить таймер
+  player.classList.remove("running1", "running2"); // Убрать классы движения
+  // block.classList.remove("fix-block");
+  road.classList.remove("animate-road");
   block.style.animation = "none";
   counter = 0;
   document.getElementById("scoreSpan").textContent = Math.floor(counter / 100);
