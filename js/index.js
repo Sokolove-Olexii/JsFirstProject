@@ -166,35 +166,135 @@ timeGameBtn.addEventListener("click", calculateTimeFunction);
 function calculateTimeFunction() {
   event.preventDefault();
   let value = Number(timeGameInput.value);
-  // 500
   if (isNaN(value) || value <= 0) {
     timeGameResult.textContent = "Ви не заповнили поле";
     return;
   } else {
-    // Округлення, value (кількість секунд), де 3600 - кількість секунд в одній годині, а 24 кількість годин у дні
     let days = Math.floor(value / (24 * 3600));
-    // Перевизначили value, отримали остачу від ділення на 86400 і записали назад
+
     value %= 24 * 3600;
-    // Все що залишилось переробили в години, де 3600 - кількість секунд в одній годині
+
     let hours = Math.floor(value / 3600);
-    // Відняли все, що залишилось від value
+
     value %= 3600;
-    // все що залишилось від value переробили в секунди, отримавши остачу від ділення
+
     let seconds = Math.floor(value % 60);
-    // все що залишилось від value переробили в хвилини
     let minutes = Math.floor(value / 60);
-
-    // 3600 секунд в годині
-    // 3600 * 24 в дні
-    // Обчислення годин, що залишаються після виділення днів
-
-    // Обчислення хвилин, що залишаються після виділення годин
-
     const message = `${days} дн, ${hours}:${minutes}:${seconds}`;
     timeGameResult.textContent = message;
   }
 }
 //6
+let player = document.getElementById("player");
+let block = document.getElementById("block");
+let road = document.getElementById("road");
+let counter = 0;
+let gameStarted = false;
+let collisionEvent = new Event("collision");
+let scoreUpEvent = new Event("scoreUp");
+let isRunning = false;
+let runAnimationInterval;
+
+function userInput() {
+  if (!gameStarted) {
+    let isRun1 = true;
+    runAnimationInterval = setInterval(() => {
+      if (gameStarted) {
+        if (isRun1) {
+          player.classList.add("running1");
+          player.classList.remove("running2");
+        } else {
+          player.classList.add("running2");
+          player.classList.remove("running1");
+        }
+        isRun1 = !isRun1;
+      }
+    }, 200);
+
+    gameStarted = true;
+    block.classList.add("fix-block");
+    road.classList.add("animate-road");
+    block.style.animation = "block 1.5s linear infinite";
+    gameLoop();
+    jump();
+  } else {
+    jump();
+  }
+}
+
+function gameLoop() {
+  var playerRect = player.getBoundingClientRect();
+  var blockRect = block.getBoundingClientRect();
+
+  if (
+    playerRect.right >= blockRect.left &&
+    playerRect.left <= blockRect.right &&
+    playerRect.bottom >= blockRect.top &&
+    playerRect.top <= blockRect.bottom
+  ) {
+    player.dispatchEvent(collisionEvent);
+  } else {
+    player.dispatchEvent(scoreUpEvent);
+  }
+  if (gameStarted) {
+    requestAnimationFrame(gameLoop);
+  }
+}
+
+// Jump function
+// function jump() {
+//   if (player.classList.contains("animate")) {
+//     return;
+//   }
+//   player.classList.add("animate");
+//   setTimeout(function () {
+//     player.classList.remove("animate");
+//   }, 300);
+// }
+
+function jump() {
+  if (player.classList.contains("animate")) return;
+
+  player.classList.add("animate");
+
+  player.addEventListener("animationend", function removeAnimation() {
+    player.classList.remove("animate");
+    player.removeEventListener("animationend", removeAnimation);
+  });
+}
+
+function handleKeyDown(event) {
+  if (event.code === "Space" && event.target === document.body) {
+    userInput();
+  }
+}
+
+player.addEventListener("collision", function (event) {
+  gameStarted = false;
+
+  clearInterval(runAnimationInterval);
+  player.classList.remove("running1", "running2");
+  // block.classList.remove("fix-block");
+  road.classList.remove("animate-road");
+  block.style.animation = "none";
+  counter = 0;
+  document.getElementById("scoreSpan").textContent = Math.floor(counter / 100);
+  document.getElementById("game").style.backgroundColor("red");
+});
+
+//needs to rework (new score)
+player.addEventListener("scoreUp", function (event) {
+  counter++;
+  updateScore();
+});
+
+function updateScore() {
+  var scoreSpan = document.getElementById("scoreSpan");
+  scoreSpan.textContent = Math.floor(counter / 100);
+}
+
+document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("mousedown", userInput);
 
 //7
 const field = document.querySelector(".main-seventhGame-footballField");
@@ -232,16 +332,11 @@ field.addEventListener("mousedown", (e) => {
   const y = e.clientY - fieldRect.top - 25;
   ball.style.left = `${x}px`;
   ball.style.top = `${y}px`;
-  // Remove the rotate class (if it exists)
   ball.classList.remove("rotate");
 
-  // Trigger reflow: this forces the browser to re-compute styles before re-adding the class
-  void ball.offsetWidth; // this line forces reflow
+  void ball.offsetWidth;
 
-  // Now re-add the class to restart the animation
   ball.classList.add("rotate");
-
-  // ball.style.fill = randomHexColorCode();
 });
 
 //8
@@ -392,193 +487,138 @@ const scientists = [
     id: 12,
   },
 ];
-
+// повертає масив
+const allDiv = document.querySelectorAll(".div-scientist");
+allDiv.forEach((div) => (div.style.display = "none"));
+const div1 = document.querySelector(".scientistDescription1");
+const div2 = document.querySelector(".scientistDescription2");
+const div3 = document.querySelector(".scientistDescription3");
+const div4 = document.querySelector(".scientistDescription4");
+const div5 = document.querySelector(".scientistDescription5");
+const div6 = document.querySelector(".scientistDescription6");
+const div7 = document.querySelector(".scientistDescription7");
+const div8 = document.querySelector(".scientistDescription8");
+const div9 = document.querySelector(".scientistDescription9");
+const div10 = document.querySelector(".scientistDescription10");
+const div11 = document.querySelector(".scientistDescription11");
+const div12 = document.querySelector(".scientistDescription12");
 const buttonScientist1 = document
   .getElementById("scientist-button-1")
-  .addEventListener("click", () =>
-    console.log(
-      scientists.filter(
-        (scientist) => scientist.born >= 1800 && scientist.born < 1900
-      )
-    )
-  );
+  .addEventListener("click", () => {
+    // Фільтруємо вчених за умовою
+    const matchingScientists = scientists.filter(
+      (scientist) => scientist.born >= 1800 && scientist.born < 1900
+    );
+
+    // Відображаємо лише ті div, які відповідають фільтру
+    matchingScientists.forEach((scientist) => {
+      const scientistDiv = document.querySelector(
+        `.scientistDescription${scientist.id}`
+      );
+      if (scientistDiv) {
+        scientistDiv.style.display = "block";
+      }
+    });
+  });
 // localeCompare - створений для того, щоб перекладати на локальну мову
 
 const buttonScientist2 = document
   .getElementById("scientist-button-2")
-  .addEventListener("click", () =>
-    console.log(scientists.sort((a, b) => a.name.localeCompare(b.name)))
-  );
+  .addEventListener("click", () => {
+    const matchingScientists = scientists.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    console.log(matchingScientists);
+  });
+
 const buttonScientist3 = document
   .getElementById("scientist-button-3")
-  .addEventListener("click", () =>
-    console.log(
-      scientists.sort((a, b) => {
-        const live1 = a.dead - a.born;
-        const live2 = b.dead - b.born;
-        return live2 - live1;
-      })
-    )
-  );
+  .addEventListener("click", () => {
+    const matchingScientists = scientists.sort((a, b) => {
+      const live1 = a.dead - a.born;
+      const live2 = b.dead - b.born;
+      return live2 - live1;
+    });
+    console.log(matchingScientists);
+  });
+
 const buttonScientist4 = document
   .getElementById("scientist-button-4")
   .addEventListener("click", () => {
-    const array = scientists.find(
+    const youngestScientist = scientists.find(
       (scientist) =>
-        scientist.born ===
-        Math.max(...scientists.map((scientist) => scientist.born))
+        scientist.born === Math.max(...scientists.map((sc) => sc.born))
     );
-    console.log(array);
   });
+
 const buttonScientist5 = document
   .getElementById("scientist-button-5")
-  .addEventListener("click", () =>
-    console.log(
-      scientists.find(
-        (scientist) =>
-          scientist.name === "Albert" && scientist.surname === "Einstein"
-      ).born
-    )
-  );
+  .addEventListener("click", () => {
+    const einstein = scientists.find(
+      (scientist) =>
+        scientist.name === "Albert" && scientist.surname === "Einstein"
+    );
+    console.log(einstein.born);
+  });
+
 const buttonScientist6 = document
   .getElementById("scientist-button-6")
   .addEventListener("click", () => {
-    console.log(
-      scientists.filter((scientist) => scientist.surname.startsWith("C"))
+    const scientistsWithC = scientists.filter((scientist) =>
+      scientist.surname.startsWith("C")
     );
-  });
-const buttonScientist7 = document.getElementById("scientist-button-7");
-const buttonScientist8 = document.getElementById("scientist-button-8");
-const buttonScientist9 = document.getElementById("scientist-button-9");
-console.log();
-
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-///////////////////////////////////////////////
-
-//Global Variables
-let player = document.getElementById("player");
-let block = document.getElementById("block");
-let road = document.getElementById("road");
-let counter = 0;
-let gameStarted = false;
-let collisionEvent = new Event("collision");
-let scoreUpEvent = new Event("scoreUp");
-let isRunning = false;
-let runAnimationInterval;
-
-function userInput() {
-  if (!gameStarted) {
-    let isRun1 = true; // Переключение между dino1 и dino2
-    // Запуск анимации с интервалом
-    runAnimationInterval = setInterval(() => {
-      if (gameStarted) {
-        if (isRun1) {
-          player.classList.add("running1");
-          player.classList.remove("running2");
-        } else {
-          player.classList.add("running2");
-          player.classList.remove("running1");
-        }
-        isRun1 = !isRun1; // Переключить состояние
+    scientistsWithC.forEach((scientist) => {
+      const scientistDiv = document.querySelector(
+        `.scientistDescription${scientist.id}`
+      );
+      if (scientistDiv) {
+        scientistDiv.style.display = "block";
       }
-    }, 200); // Частота переключения (200 мс)
-
-    gameStarted = true;
-    block.classList.add("fix-block");
-    road.classList.add("animate-road"); // Включить анимацию дороги
-    block.style.animation = "block 1.5s linear infinite"; // Включить анимацию кактуса
-    gameLoop();
-    jump();
-  } else {
-    jump();
-  }
-}
-// GameLoop Function
-function gameLoop() {
-  // Check for collision between player and block
-  var playerRect = player.getBoundingClientRect();
-  var blockRect = block.getBoundingClientRect();
-
-  if (
-    playerRect.right >= blockRect.left &&
-    playerRect.left <= blockRect.right &&
-    playerRect.bottom >= blockRect.top &&
-    playerRect.top <= blockRect.bottom
-  ) {
-    // Collision occurred, trigger the custom event
-    player.dispatchEvent(collisionEvent);
-  } else {
-    // No Collision occurred, counter++
-    player.dispatchEvent(scoreUpEvent);
-  }
-  if (gameStarted) {
-    requestAnimationFrame(gameLoop); // Continuously call gameLoop
-  }
-}
-
-// Jump function
-// function jump() {
-//   if (player.classList.contains("animate")) {
-//     return;
-//   }
-//   player.classList.add("animate");
-//   setTimeout(function () {
-//     player.classList.remove("animate");
-//   }, 300);
-// }
-
-function jump() {
-  if (player.classList.contains("animate")) return;
-
-  player.classList.add("animate");
-
-  player.addEventListener("animationend", function removeAnimation() {
-    player.classList.remove("animate");
-    player.removeEventListener("animationend", removeAnimation);
+    });
   });
-}
 
-// Function to handle the SpaceBar keydown event
-function handleKeyDown(event) {
-  if (event.code === "Space" && event.target === document.body) {
-    userInput();
-  }
-}
+const buttonScientist7 = document
+  .getElementById("scientist-button-7")
+  .addEventListener("click", () => {
+    const scientistsWithoutA = scientists.filter(
+      (scientist) => !scientist.name.startsWith("A")
+    );
+    console.log(scientistsWithoutA);
+  });
 
-// Event listener for the collision event
-player.addEventListener("collision", function (event) {
-  // Handle the collision event
-  gameStarted = false;
-  //need to stop the game and tag "game over!"
-  //Stop DINO RUN
-  clearInterval(runAnimationInterval); // Остановить таймер
-  player.classList.remove("running1", "running2"); // Убрать классы движения
-  // block.classList.remove("fix-block");
-  road.classList.remove("animate-road");
-  block.style.animation = "none";
-  counter = 0;
-  document.getElementById("scoreSpan").textContent = Math.floor(counter / 100);
-  document.getElementById("game").style.backgroundColor("red");
-});
+const buttonScientist8 = document
+  .getElementById("scientist-button-8")
+  .addEventListener("click", () => {
+    scientists.forEach(
+      (scientist) => (scientist.age = scientist.dead - scientist.born)
+    );
 
-//Event listener for scoreUPevent
-player.addEventListener("scoreUp", function (event) {
-  //Handle scoreUp event
-  counter++;
-  updateScore();
-});
+    const maximumAge = scientists.reduce(maxAge);
+    const minimumAge = scientists.reduce(minAge);
+    console.log("Longest-lived scientist:", maximumAge);
+    console.log("Shortest-lived scientist:", minimumAge);
 
-// Function to update the score
-function updateScore() {
-  var scoreSpan = document.getElementById("scoreSpan");
-  scoreSpan.textContent = Math.floor(counter / 100);
-}
+    function maxAge(prev, next) {
+      return prev.age > next.age ? prev : next;
+    }
 
-// Add event listener to the document object
-document.addEventListener("keydown", handleKeyDown);
-document.addEventListener("mousedown", userInput);
+    function minAge(prev, next) {
+      return prev.age < next.age ? prev : next;
+    }
+  });
+
+const buttonScientist9 = document
+  .getElementById("scientist-button-9")
+  .addEventListener("click", () => {
+    const matchingScientists = scientists.filter(
+      (scientist) => scientist.name.charAt(0) === scientist.surname.charAt(0)
+    );
+    matchingScientists.forEach((scientist) => {
+      const scientistDiv = document.querySelector(
+        `.scientistDescription${scientist.id}`
+      );
+      if (scientistDiv) {
+        scientistDiv.style.display = "block";
+      }
+    });
+  });
